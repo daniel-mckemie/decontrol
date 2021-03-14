@@ -22,9 +22,10 @@ WebMidi.enable(function (err) {
     midiOutputSelect.addEventListener('change', getMidiOutput)
     
     socket.on('midiTransport-1', function (data) {
-      console.log(`Chan: ${data.channel} / CC: ${data.cc} / Value: ${data.value} / ${data.time}`)
-      infoDiv.innerHTML = (`Chan: ${data.channel} / CC: ${data.cc} / Value: ${data.value}`);
-      output.sendControlChange(data.cc, data.value, data.channel);      
+      // console.log(`Chan: ${data.channel} / CC: ${data.cc} / Value: ${data.value} / ${data.time}`)
+      infoDiv.innerHTML = (`MSB: ${data.msbx}, ${data.msby} / LSB: ${data.lsbx}, ${data.lsby} / Channel: ${data.channel}`);
+      // output.sendControlChange(data.cc, data.value, data.channel);      
+      output.setNonRegisteredParameter([data.msbx, data.msby], [data.lsbx, data.lsby], data.channel);
     })
     
   }
