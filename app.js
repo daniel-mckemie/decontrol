@@ -47,4 +47,7 @@ io.on('connection', function(socket) {
   socket.on('midiTransport-1', function(data) {
     io.sockets.emit('midiTransport-1', data)
   });
+  // socket.on('videoTransport', function (data) {
+  //   io.sockets.emit('videoTransport', data)
+  // });
 });

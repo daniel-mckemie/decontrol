@@ -36,3 +36,75 @@ WebMidi.enable(function (err) {
 
 
 
+
+// VIDEO STREAM WORK
+
+// // Grab Devices
+// inputDeviceArray = [];
+// inputDeviceId = null;
+
+// const videoStream = document.getElementById('mainVideoTag')
+// const otherVideoStream = document.getElementById('otherVideoTag')
+
+// const deviceSelect = document.getElementById('device-inputs');
+
+
+// function handleVideo(vid) {
+//   otherVideoStream.srcObject = vid;
+//   streamStarted = true;
+//   setInterval(() => {
+//     socket.emit('videoTransport', {
+//       stream: vid
+//     })
+//   }, 33);
+// }
+
+// function getDevices() {
+//   navigator.mediaDevices.enumerateDevices().then(function (devices) {
+//     devices.forEach(function (device) {
+//       deviceSelect.options[deviceSelect.options.length] = new Option(device.label);
+//       inputDeviceArray.push(device.deviceId);
+
+//       // console.log(device.kind + ": " + device.label +
+//       //   " id = " + device.deviceId);
+//     });
+
+//     function chooseDevice() {
+//       return inputDeviceId = inputDeviceArray[deviceSelect.selectedIndex];
+//     }
+
+//     deviceSelect.addEventListener('change', chooseDevice)
+//   })
+// }
+// window.onload = getDevices();
+
+
+// function startVideo() {
+//   // if (dc.readyState == 'connecting') {
+//   //   startButton.disabled = false;
+//   //   console.log(dc.readyState)
+//   // } else {
+//   startVideoButton.disabled = true;
+//   // setAudioButton.disabled = true;
+//   navigator.mediaDevices.getUserMedia({
+//     audio: {
+//       sampleRate: 44100,       
+//       latency: 0,
+//       deviceId: inputDeviceId,
+//       channelCount: 1,
+//       echoCancellation: false,
+//       noiseSuppression: false,
+//       autoGainControl: false
+//     },
+//     // video: {
+//     //   height: 320,
+//     //   width: 240
+//     // }
+//     video: true
+//   }).then(handleVideo);
+// }
+
+
+
+
+
