@@ -54,6 +54,12 @@ WebMidi.enable(function (err) {
       // TBD: document.getElementById('TBD'),
       
     }
+    
+    
+    for (const property in allParams) {
+      allParams[property].style.visibility = 'hidden';
+      // console.log(allParams[property].style.visibility);      
+    }
 
 
     allParams.osc1Freq.addEventListener('input', function () {
@@ -89,7 +95,49 @@ WebMidi.enable(function (err) {
     });    
     // allParams.TBD.addEventListener('change', function () {
     //   changeItDefault(38, 12, allParams.TBD.value, 8)
-    // });    
+    // });
+    function fadeIn(element) {
+      var op = 0.1; // initial opacity      
+      var timer = setInterval(function () {
+        if (op >= 1) {
+          clearInterval(timer);
+          element.style.visibility = 'visible';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.1;
+      }, 10);
+    }
+
+    function fadeOut(element) {      
+      var op = 1; // initial opacity
+      var timer = setInterval(function () {
+        if (op <= 0.1) {
+          clearInterval(timer);
+          element.style.visibility = 'hidden';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+      }, 50);
+    }
+    randomInterval = 5000;
+    setInterval(() => {
+      randomInterval = Math.floor(Math.random() * 20000) + 3000;
+    }, 5000);
+
+    
+    setInterval(() => {
+      console.log(randomInterval)
+      let randomElement = Math.floor(Math.random() * Object.keys(allParams).length);
+      console.log(allParams[Object.keys(allParams)[randomElement]].style.visibility)
+      if (allParams[Object.keys(allParams)[randomElement]].style.visibility == 'hidden') {
+        fadeIn(allParams[Object.keys(allParams)[randomElement]]);
+      }
+      if (allParams[Object.keys(allParams)[randomElement]].style.visibility == 'visible') {
+        fadeOut(allParams[Object.keys(allParams)[randomElement]]);
+      } 
+    }, randomInterval);
         
   }
 
