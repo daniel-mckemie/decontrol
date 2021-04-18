@@ -9,19 +9,22 @@ WebMidi.enable(function (err) {
     console.log('WebMidi could not be enabled.', err);
   } else {
     console.log('WedMidi enabled!');
-    const transportOptions = ['midiTransport-1'];
+    
+    // const transportOptions = ['midiTransport-1'];
 
-    for (index in transportOptions) {      
-      midiOutputSelect[midiOutputSelect.length] = new Option(transportOptions[index], index);
-    }
+    // for (index in transportOptions) {      
+    //   midiOutputSelect[midiOutputSelect.length] = new Option(transportOptions[index], index);
+    // }
 
     outputSocket = null;
 
     function setWebSocket() {
-      console.log(midiOutputSelect.options[midiOutputSelect.selectedIndex].text)
-      return outputSocket = midiOutputSelect.options[midiOutputSelect.selectedIndex].text;
+      // console.log(midiOutputSelect.options[midiOutputSelect.selectedIndex].text)
+      // return outputSocket = midiOutputSelect.options[midiOutputSelect.selectedIndex].text;
+      return outputSocket = 'midiTransport-1';
     }
-    midiOutputSelect.addEventListener('change', setWebSocket);
+    // midiOutputSelect.addEventListener('change', setWebSocket);
+    setWebSocket();
 
     function changeItDefault(x, y, a, chan) {
       let val1 = a & 127;
@@ -140,8 +143,7 @@ WebMidi.enable(function (err) {
       }      
     }, randomIntervalFadeIn);
     
-    setInterval(() => {   
-      console.log('FADE OUT')   
+    setInterval(() => {         
       let randomElement = Math.floor(Math.random() * Object.keys(allParams).length);
       if (allParams[Object.keys(allParams)[randomElement]].style.visibility == 'visible') {
         fadeOut(allParams[Object.keys(allParams)[randomElement]]);
