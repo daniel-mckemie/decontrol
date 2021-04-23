@@ -54,7 +54,7 @@ WebMidi.enable(function (err) {
       amp1Ch1: document.getElementById('slider5'),      
       sAndHGate: document.getElementById('slider6'),
       envGate: document.getElementById('slider7'),
-      switchTrig: document.getElementById('slider8'),
+      // switchTrig: document.getElementById('slider8'),
       // TBD: document.getElementById('TBD'),
       
     }
@@ -100,27 +100,27 @@ WebMidi.enable(function (err) {
     allParams.envGate.addEventListener('click', function () {
       if (buttVal2 == 0) {
         changeItDefault(38, 06, 1, 7);
-        allParams.envGate.value = 'Envelope Gate - ON'
+        allParams.envGate.value = 'Envelope Gate Random - ON'
         buttVal2 = 1;
       } else {
         changeItDefault(38, 06, 0, 7);
-        allParams.envGate.value = 'Envelope Gate - OFF'
+        allParams.envGate.value = 'Envelope Gate Random - OFF'
         buttVal2 = 0;
       }
     });
     
-    let buttVal3 = 0;
-    allParams.switchTrig.addEventListener('click', function () {
-      if (buttVal3 == 0) {
-        changeItDefault(38, 06, 1, 8);
-        allParams.switchTrig.value = 'Switch - A'
-        buttVal3 = 1;
-      } else {
-        changeItDefault(38, 06, 0, 8);
-        allParams.switchTrig.value = 'Switch - B'
-        buttVal3 = 0;
-      }
-    });
+    // let buttVal3 = 0;
+    // allParams.switchTrig.addEventListener('click', function () {
+    //   if (buttVal3 == 0) {
+    //     changeItDefault(38, 06, 1, 8);
+    //     allParams.switchTrig.value = 'Switch - A'
+    //     buttVal3 = 1;
+    //   } else {
+    //     changeItDefault(38, 06, 0, 8);
+    //     allParams.switchTrig.value = 'Switch - B'
+    //     buttVal3 = 0;
+    //   }
+    // });
 
     // allParams.TBD.addEventListener('change', function () {
     //   changeItDefault(38, 12, allParams.TBD.value, 8)
@@ -175,6 +175,32 @@ WebMidi.enable(function (err) {
     //     fadeOut(allParams[Object.keys(allParams)[randomElement]]);
     //   }
     // }, randomIntervalFadeOut);    
+  }
+
+  // Get the modal
+  var modal = document.getElementById("myModal");
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on the button, open the modal
+  btn.onclick = function () {
+    modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
   }
 
 });
