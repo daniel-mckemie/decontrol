@@ -9,7 +9,7 @@ WebMidi.enable(function (err) {
     console.log('WebMidi could not be enabled.', err);
   } else {
     console.log('WedMidi enabled!');
-    
+
     // const transportOptions = ['midiTransport-1'];
 
     // for (index in transportOptions) {      
@@ -32,8 +32,8 @@ WebMidi.enable(function (err) {
       // output.setNonRegisteredParameter([x, y], [val2, val1], 1);
       // let a = Math.floor(Math.random() * 64);      
       // let b = Math.floor(Math.random() * 127);
-      socket.emit(outputSocket, {                
-        msbx: x,  
+      socket.emit(outputSocket, {
+        msbx: x,
         msby: y,
         lsbx: val2,
         lsby: val1,
@@ -47,23 +47,23 @@ WebMidi.enable(function (err) {
 
     // MIX
     let allParams = {
-      osc1Freq: document.getElementById('slider1'),      
-      osc2Freq: document.getElementById('slider2'),      
+      osc1Freq: document.getElementById('slider1'),
+      osc2Freq: document.getElementById('slider2'),
       filterFreq: document.getElementById('slider3'),
       filterRes: document.getElementById('slider4'),
-      amp1Ch1: document.getElementById('slider5'),      
+      amp1Ch1: document.getElementById('slider5'),
       sAndHGate: document.getElementById('slider6'),
       envGate: document.getElementById('slider7'),
       // switchTrig: document.getElementById('slider8'),
       // TBD: document.getElementById('TBD'),
-      
+
     }
-    
-    // UNCOMMENT TO HIDE
-    for (const property in allParams) {
-      allParams[property].style.visibility = 'hidden';
-      // console.log(allParams[property].style.visibility);      
-    }
+
+    // // UNCOMMENT TO HIDE
+    // for (const property in allParams) {
+    //   allParams[property].style.visibility = 'hidden';
+    //   // console.log(allParams[property].style.visibility);      
+    // }
 
 
     allParams.osc1Freq.addEventListener('input', function () {
@@ -83,17 +83,16 @@ WebMidi.enable(function (err) {
     });
 
     let buttVal1 = 0;
-    allParams.sAndHGate.addEventListener('click', function () {            
+    allParams.sAndHGate.addEventListener('click', function () {
       if (buttVal1 == 0) {
         changeItDefault(38, 06, 1, 6);
         allParams.sAndHGate.value = 'Trigger Sample & Hold - ON'
         buttVal1 = 1;
-      }
-      else {
+      } else {
         changeItDefault(38, 06, 0, 6);
         allParams.sAndHGate.value = 'Trigger Sample & Hold - OFF'
         buttVal1 = 0;
-      }      
+      }
     });
 
     let buttVal2 = 0;
@@ -108,7 +107,7 @@ WebMidi.enable(function (err) {
         buttVal2 = 0;
       }
     });
-    
+
     // let buttVal3 = 0;
     // allParams.switchTrig.addEventListener('click', function () {
     //   if (buttVal3 == 0) {
@@ -126,56 +125,58 @@ WebMidi.enable(function (err) {
     //   changeItDefault(38, 12, allParams.TBD.value, 8)
     // });
 
-    function fadeIn(element) {
-      var op = 0.1; // initial opacity      
-      var timer = setInterval(function () {
-        if (op >= 1) {
-          clearInterval(timer);
-          element.style.visibility = 'visible';
-        }
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op += op * 0.05;
-      }, 10);
-    }
+    // Uncomment for fade-in/outs
 
-    function fadeOut(element) {      
-      var op = 1; // initial opacity
-      var timer = setInterval(function () {
-        if (op <= 0.1) {
-          clearInterval(timer);
-          element.style.visibility = 'hidden';
-        }
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op -= op * 0.05;
-      }, 10);
-    }
+    //   function fadeIn(element) {
+    //     var op = 0.1; // initial opacity      
+    //     var timer = setInterval(function () {
+    //       if (op >= 1) {
+    //         clearInterval(timer);
+    //         element.style.visibility = 'visible';
+    //       }
+    //       element.style.opacity = op;
+    //       element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+    //       op += op * 0.05;
+    //     }, 10);
+    //   }
 
-    randomIntervalFadeIn = 5000;
-    setInterval(() => {
-      randomIntervalFadeIn = Math.floor(Math.random() * 30000) + 3000;
-    }, 5000);
+    //   function fadeOut(element) {      
+    //     var op = 1; // initial opacity
+    //     var timer = setInterval(function () {
+    //       if (op <= 0.1) {
+    //         clearInterval(timer);
+    //         element.style.visibility = 'hidden';
+    //       }
+    //       element.style.opacity = op;
+    //       element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+    //       op -= op * 0.05;
+    //     }, 10);
+    //   }
 
-    randomIntervalFadeOut = 1000;
-    setInterval(() => {
-      randomIntervalFadeOut = Math.floor(Math.random() * 1000);
-    }, 100);
+    //   randomIntervalFadeIn = 5000;
+    //   setInterval(() => {
+    //     randomIntervalFadeIn = Math.floor(Math.random() * 30000) + 3000;
+    //   }, 5000);
 
-    
-    setInterval(() => {      
-      let randomElement = Math.floor(Math.random() * Object.keys(allParams).length);      
-      if (allParams[Object.keys(allParams)[randomElement]].style.visibility == 'hidden') {
-        fadeIn(allParams[Object.keys(allParams)[randomElement]]);
-      }      
-    }, randomIntervalFadeIn);
-    
-    setInterval(() => {         
-      let randomElement = Math.floor(Math.random() * Object.keys(allParams).length);
-      if (allParams[Object.keys(allParams)[randomElement]].style.visibility == 'visible') {
-        fadeOut(allParams[Object.keys(allParams)[randomElement]]);
-      }
-    }, randomIntervalFadeOut);    
+    //   randomIntervalFadeOut = 1000;
+    //   setInterval(() => {
+    //     randomIntervalFadeOut = Math.floor(Math.random() * 1000);
+    //   }, 100);
+
+
+    //   setInterval(() => {      
+    //     let randomElement = Math.floor(Math.random() * Object.keys(allParams).length);      
+    //     if (allParams[Object.keys(allParams)[randomElement]].style.visibility == 'hidden') {
+    //       fadeIn(allParams[Object.keys(allParams)[randomElement]]);
+    //     }      
+    //   }, randomIntervalFadeIn);
+
+    //   setInterval(() => {         
+    //     let randomElement = Math.floor(Math.random() * Object.keys(allParams).length);
+    //     if (allParams[Object.keys(allParams)[randomElement]].style.visibility == 'visible') {
+    //       fadeOut(allParams[Object.keys(allParams)[randomElement]]);
+    //     }
+    //   }, randomIntervalFadeOut);    
   }
 
   // Get the modal
@@ -205,4 +206,3 @@ WebMidi.enable(function (err) {
   }
 
 });
-
