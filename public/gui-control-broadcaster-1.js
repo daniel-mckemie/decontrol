@@ -85,11 +85,11 @@ WebMidi.enable(function (err) {
     allParams.trigger.addEventListener('click', function () {
       if (buttVal1 == 0) {
         changeItDefault(38, 06, 1, 6);
-        allParams.trigger.value = 'Trigger Sample & Hold - ON'
+        allParams.trigger.value = 'Trigger ON'
         buttVal1 = 1;
       } else {
         changeItDefault(38, 06, 0, 6);
-        allParams.trigger.value = 'Trigger Sample & Hold - OFF'
+        allParams.trigger.value = 'Trigger OFF'
         buttVal1 = 0;
       }
     });
