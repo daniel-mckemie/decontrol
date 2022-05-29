@@ -5,75 +5,146 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title></title>
     <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />    
-    <link rel="stylesheet" type="text/css" href="./styles/style.css">
-    
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" />
   </head>
 
   <body>
-    <div>      
-
+    <div>
       <!-- <select id="midi-transports">
         <option value="" selected disabled hidden>Choose output link</option>
       </select> -->
 
       <div class="slidecontainer">
         <div class="slider-div">
-          <p>This page sends control voltage signals to the synthesizer I am playing.  The elements on the page will appear/disappear at random, and not everyone in the audience has the same view of the same set of elements.  Sometimes your change will effect my instrument, sometimes it won't (like if I unplug the corresponding patch cord), and sometimes it will conflict with another audience members movements (in which case you will hear unpredictable behavior).</p>
+          <p>
+            This page sends control voltage signals to the synthesizer I am
+            playing. The elements on the page will appear/disappear at random,
+            and not everyone in the audience has the same view of the same set
+            of elements. Sometimes your change will effect my instrument,
+            sometimes it won't (like if I unplug the corresponding patch cord),
+            and sometimes it will conflict with another audience members
+            movements (in which case you will hear unpredictable behavior).
+          </p>
 
           <!-- Trigger/Open The Modal -->
           <button id="myBtn">More Info/Program Notes</button>
 
           <!-- The Modal -->
           <div id="myModal" class="modal">
-
             <!-- Modal content -->
             <div class="modal-content">
               <span class="close">&times;</span>
-              <p><b>DECONTROL</b> is a work for electronics and audience.  The aim of the work is to utilize the livestream concert environment to further engage the audience at home with what it is they are experiencing.  The piece provides a corresponding web page to the viewing audience (or not viewing audience) that allows direct control over the soloist's instrument.  The page is a series of sliders and buttons that transmit high resolution, 14-bit MIDI data via WebSockets to my computer. My computer converts this data to control voltage signals which are then routed to points in a modular synthesizer.  I do not know what information the audience will transmit, or when these signals will be transmitted. My only control of the situation is scaling the voltages (where applicable) or unplugging the patch cable and breaking the signal for everyone. It could be imagined that in a concert hall environment, the audience is invited to the stage to turn knobs and push buttons as a collective (the piece can also be performed in-person with mobile devices). You may access the page on your computer, phone, or tablet, so long as your browser supports the Web MIDI API (Chrome or Firefox recommended!).</p>
+              <p>
+                <b>DECONTROL</b> is a work for electronics and audience. The aim
+                of the work is to utilize the livestream concert environment to
+                further engage the audience at home with what it is they are
+                experiencing. The piece provides a corresponding web page to the
+                viewing audience (or not viewing audience) that allows direct
+                control over the soloist's instrument. The page is a series of
+                sliders and buttons that transmit high resolution, 14-bit MIDI
+                data via WebSockets to my computer. My computer converts this
+                data to control voltage signals which are then routed to points
+                in a modular synthesizer. I do not know what information the
+                audience will transmit, or when these signals will be
+                transmitted. My only control of the situation is scaling the
+                voltages (where applicable) or unplugging the patch cable and
+                breaking the signal for everyone. It could be imagined that in a
+                concert hall environment, the audience is invited to the stage
+                to turn knobs and push buttons as a collective (the piece can
+                also be performed in-person with mobile devices). You may access
+                the page on your computer, phone, or tablet, so long as your
+                browser supports the Web MIDI API (Chrome or Firefox
+                recommended!).
+              </p>
             </div>
-
-        </div>
-
+          </div>
         </div>
       </div>
-                  
 
       <div class="slidecontainer">
         <div class="slider-div">
-        <p>VCO1 Frequency</p>
-        <input type="range" min="0" max="16383" value="0" class="slider" id="slider1" value="0">      
+          <p>Frequency</p>
+          <input
+            type="range"
+            min="0"
+            max="16383"
+            value="0"
+            class="slider"
+            id="slider1"
+            value="0"
+          />
         </div>
         <div class="slider-div">
-        <p>VCO2 Frequency</p>
-        <input type="range" min="0" max="16383" value="0" class="slider" id="slider2" value="0">
-        </div>
-        <div class="slider-div">        
-        <p>Filter Cutoff</p>
-        <input type="range" min="0" max="16383" value="0" class="slider" id="slider3" value="0">
-        </div>
-        <div class="slider-div">
-        <p>Filter Q</p>
-        <input type="range" min="0" max="16383" value="0" class="slider" id="slider4" value="0">
-        </div>
-        <div class="slider-div">
-        <p>VCO2 Pulse Width Modulation</p>
-        <input type="range" min="0" max="16383" value="0" class="slider" id="slider5" value="0">
+          <p>Harmonics</p>
+          <input
+            type="range"
+            min="0"
+            max="16383"
+            value="0"
+            class="slider"
+            id="slider2"
+            value="0"
+          />
         </div>
         <div class="slider-div">
-        <p>S&H Gate</p>
-        <input type="button" value="Trigger Sample & Hold - OFF" class="slider" id="slider6">
+          <p>Utility</p>
+          <input
+            type="range"
+            min="0"
+            max="16383"
+            value="0"
+            class="slider"
+            id="slider3"
+            value="0"
+          />
         </div>
+        <!-- <div class="slider-div" display="none">
+          <p>Filter Q</p>
+          <input
+            type="range"
+            min="0"
+            max="16383"
+            value="0"
+            class="slider"
+            id="slider4"
+            value="0"
+          />
+        </div>
+        <div class="slider-div" display="none">
+          <p>VCO2 Pulse Width Modulation</p>
+          <input
+            type="range"
+            min="0"
+            max="16383"
+            value="0"
+            class="slider"
+            id="slider5"
+            value="0"
+          />
+        </div> -->
         <div class="slider-div">
-        <p>ADSR Envelope Gate</p>
-        <input type="button" value="Envelope Gate Random OFF" class="slider" id="slider7">
+          <p>Trigger</p>
+          <input
+            type="button"
+            value="Trigger - OFF"
+            class="slider"
+            id="slider6"
+          />
         </div>
+        <!-- <div class="slider-div" display="none">
+          <p>ADSR Envelope Gate</p>
+          <input
+            type="button"
+            value="Envelope Gate Random OFF"
+            class="slider"
+            id="slider7"
+          />
+        </div> -->
         <!-- <div class="slider-div">
         <p>Switch A/B</p>
         <input type="button" value="Switch - A" class="slider" id="slider8">
         </div> -->
-        
       </div>
 
       <!-- <div class="video-wrap">
@@ -82,16 +153,9 @@
       </div>    
     </div> -->
 
-      
-        
-          
-        
-      
-
       <div class="flex-grid">
         <div class="row" id="info"></div>
       </div>
-      
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="webmidi.min.js"></script>

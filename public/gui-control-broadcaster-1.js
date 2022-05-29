@@ -38,7 +38,6 @@ WebMidi.enable(function (err) {
         lsbx: val2,
         lsby: val1,
         channel: chan
-
       });
       // socket.on(outputSocket, function (data) {
       //   infoDiv.innerHTML = (`Chan: ${data.channel} / CC: ${data.cc} / Value: ${data.value}`);
@@ -47,66 +46,66 @@ WebMidi.enable(function (err) {
 
     // MIX
     let allParams = {
-      osc1Freq: document.getElementById('slider1'),
-      osc2Freq: document.getElementById('slider2'),
-      filterFreq: document.getElementById('slider3'),
-      filterRes: document.getElementById('slider4'),
-      amp1Ch1: document.getElementById('slider5'),
-      sAndHGate: document.getElementById('slider6'),
-      envGate: document.getElementById('slider7'),
+      frequency: document.getElementById('slider1'),
+      harmonics: document.getElementById('slider2'),
+      utility: document.getElementById('slider3'),
+      // filterRes: document.getElementById('slider4'),
+      // amp1Ch1: document.getElementById('slider5'),
+      trigger: document.getElementById('slider6'),
+      // envGate: document.getElementById('slider7'),
       // switchTrig: document.getElementById('slider8'),
       // TBD: document.getElementById('TBD'),
 
     }
 
-    // // UNCOMMENT TO HIDE
+    // // UNCOMMENT TO HIDE for fade-ins and outs
     // for (const property in allParams) {
     //   allParams[property].style.visibility = 'hidden';
     //   // console.log(allParams[property].style.visibility);      
     // }
 
 
-    allParams.osc1Freq.addEventListener('input', function () {
-      changeItDefault(38, 06, allParams.osc1Freq.value, 1)
+    allParams.frequency.addEventListener('input', function () {
+      changeItDefault(38, 06, allParams.frequency.value, 1)
     });
-    allParams.osc2Freq.addEventListener('input', function () {
-      changeItDefault(38, 06, allParams.osc2Freq.value, 2)
+    allParams.harmonics.addEventListener('input', function () {
+      changeItDefault(38, 06, allParams.harmonics.value, 2)
     });
-    allParams.filterFreq.addEventListener('input', function () {
-      changeItDefault(38, 06, allParams.filterFreq.value, 3)
+    allParams.utility.addEventListener('input', function () {
+      changeItDefault(38, 06, allParams.utility.value, 3)
     });
-    allParams.filterRes.addEventListener('input', function () {
-      changeItDefault(38, 06, allParams.filterRes.value, 4)
-    });
-    allParams.amp1Ch1.addEventListener('input', function () {
-      changeItDefault(38, 06, allParams.amp1Ch1.value, 5)
-    });
+    // allParams.filterRes.addEventListener('input', function () {
+    //   changeItDefault(38, 06, allParams.filterRes.value, 4)
+    // });
+    // allParams.amp1Ch1.addEventListener('input', function () {
+    //   changeItDefault(38, 06, allParams.amp1Ch1.value, 5)
+    // });
 
     let buttVal1 = 0;
-    allParams.sAndHGate.addEventListener('click', function () {
+    allParams.trigger.addEventListener('click', function () {
       if (buttVal1 == 0) {
         changeItDefault(38, 06, 1, 6);
-        allParams.sAndHGate.value = 'Trigger Sample & Hold - ON'
+        allParams.trigger.value = 'Trigger Sample & Hold - ON'
         buttVal1 = 1;
       } else {
         changeItDefault(38, 06, 0, 6);
-        allParams.sAndHGate.value = 'Trigger Sample & Hold - OFF'
+        allParams.trigger.value = 'Trigger Sample & Hold - OFF'
         buttVal1 = 0;
       }
     });
 
-    let buttVal2 = 0;
-    allParams.envGate.addEventListener('click', function () {
-      if (buttVal2 == 0) {
-        changeItDefault(38, 06, 1, 7);
-        allParams.envGate.value = 'Envelope Gate Random - ON'
-        buttVal2 = 1;
-      } else {
-        changeItDefault(38, 06, 0, 7);
-        allParams.envGate.value = 'Envelope Gate Random - OFF'
-        buttVal2 = 0;
-      }
-    });
+    // let buttVal2 = 0;
+    // allParams.envGate.addEventListener('click', function () {
+    //   if (buttVal2 == 0) {
+    //     changeItDefault(38, 06, 1, 7);
+    //     allParams.envGate.value = 'Envelope Gate Random - ON'
+    //     buttVal2 = 1;
+    //   } else {
+    //     changeItDefault(38, 06, 0, 7);
+    //     allParams.envGate.value = 'Envelope Gate Random - OFF'
+    //     buttVal2 = 0;
+    //   }
+    // });
 
     // let buttVal3 = 0;
     // allParams.switchTrig.addEventListener('click', function () {
