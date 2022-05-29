@@ -17,28 +17,12 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/home.html')
 });
 
-app.get('/broadcaster-1', function (req, res) {
-  res.sendFile(__dirname + '/public/broadcaster-1.html')
+app.get('/audience', function (req, res) {
+  res.sendFile(__dirname + '/public/audience.html');
 });
 
-app.get('/broadcaster-2', function (req, res) {
-  res.sendFile(__dirname + '/public/broadcaster-2.html')
-});
-
-app.get('/receiver-1', function (req, res) {
-  res.sendFile(__dirname + '/public/receiver-1.html');
-});
-
-app.get('/receiver-2', function (req, res) {
-  res.sendFile(__dirname + '/public/receiver-2.html');
-});
-
-app.get('/gui-control-broadcaster-1', function (req, res) {
-  res.sendFile(__dirname + '/public/gui-control-broadcaster-1.html');
-});
-
-app.get('/gui-control-receiver-1', function (req, res) {
-  res.sendFile(__dirname + '/public/gui-control-receiver-1.html');
+app.get('/performer', function (req, res) {
+  res.sendFile(__dirname + '/public/performer.html');
 });
 
 

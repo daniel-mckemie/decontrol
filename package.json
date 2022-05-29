@@ -1,5 +1,5 @@
 {
-  "name": "midi-broadcaster",
+  "name": "decontrol",
   "version": "1.0.0",
   "engines": {
     "node": "10.x",
@@ -21,11 +21,11 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/daniel-mckemie/midi-broadcaster.git"
+    "url": "git+https://github.com/daniel-mckemie/decontrol.git"
   },
   "bugs": {
-    "url": "https://github.com/daniel-mckemie/midi-broadcaster/issues"
+    "url": "https://github.com/daniel-mckemie/decontrol/issues"
   },
-  "homepage": "https://github.com/daniel-mckemie/midi-broadcaster#readme",
+  "homepage": "https://github.com/daniel-mckemie/decontrol#readme",
   "description": ""
 }

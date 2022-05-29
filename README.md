@@ -1,1 +1,1 @@
-Code and patch for TWELVE concert for SEAMUS
+Code and patch for Decontrol for live electronics and audience
