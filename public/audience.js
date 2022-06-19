@@ -58,11 +58,11 @@ WebMidi.enable(function (err) {
 
     }
 
-    // // UNCOMMENT TO HIDE for fade-ins and outs
-    // for (const property in allParams) {
-    //   allParams[property].style.visibility = 'hidden';
-    //   // console.log(allParams[property].style.visibility);      
-    // }
+    // UNCOMMENT TO HIDE for fade-ins and outs
+    for (const property in allParams) {
+      allParams[property].style.visibility = 'hidden';
+      // console.log(allParams[property].style.visibility);      
+    }
 
 
     allParams.frequency.addEventListener('input', function () {
@@ -126,56 +126,56 @@ WebMidi.enable(function (err) {
 
     // Uncomment for fade-in/outs
 
-    //   function fadeIn(element) {
-    //     var op = 0.1; // initial opacity      
-    //     var timer = setInterval(function () {
-    //       if (op >= 1) {
-    //         clearInterval(timer);
-    //         element.style.visibility = 'visible';
-    //       }
-    //       element.style.opacity = op;
-    //       element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-    //       op += op * 0.05;
-    //     }, 10);
-    //   }
+    function fadeIn(element) {
+      var op = 0.1; // initial opacity      
+      var timer = setInterval(function () {
+        if (op >= 1) {
+          clearInterval(timer);
+          element.style.visibility = 'visible';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.05;
+      }, 10);
+    }
 
-    //   function fadeOut(element) {      
-    //     var op = 1; // initial opacity
-    //     var timer = setInterval(function () {
-    //       if (op <= 0.1) {
-    //         clearInterval(timer);
-    //         element.style.visibility = 'hidden';
-    //       }
-    //       element.style.opacity = op;
-    //       element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-    //       op -= op * 0.05;
-    //     }, 10);
-    //   }
+    function fadeOut(element) {
+      var op = 1; // initial opacity
+      var timer = setInterval(function () {
+        if (op <= 0.1) {
+          clearInterval(timer);
+          element.style.visibility = 'hidden';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.05;
+      }, 10);
+    }
 
-    //   randomIntervalFadeIn = 5000;
-    //   setInterval(() => {
-    //     randomIntervalFadeIn = Math.floor(Math.random() * 30000) + 3000;
-    //   }, 5000);
+    randomIntervalFadeIn = 5000;
+    setInterval(() => {
+      randomIntervalFadeIn = Math.floor(Math.random() * 30000) + 3000;
+    }, 5000);
 
-    //   randomIntervalFadeOut = 1000;
-    //   setInterval(() => {
-    //     randomIntervalFadeOut = Math.floor(Math.random() * 1000);
-    //   }, 100);
+    randomIntervalFadeOut = 1000;
+    setInterval(() => {
+      randomIntervalFadeOut = Math.floor(Math.random() * 1000);
+    }, 100);
 
 
-    //   setInterval(() => {      
-    //     let randomElement = Math.floor(Math.random() * Object.keys(allParams).length);      
-    //     if (allParams[Object.keys(allParams)[randomElement]].style.visibility == 'hidden') {
-    //       fadeIn(allParams[Object.keys(allParams)[randomElement]]);
-    //     }      
-    //   }, randomIntervalFadeIn);
+    setInterval(() => {
+      let randomElement = Math.floor(Math.random() * Object.keys(allParams).length);
+      if (allParams[Object.keys(allParams)[randomElement]].style.visibility == 'hidden') {
+        fadeIn(allParams[Object.keys(allParams)[randomElement]]);
+      }
+    }, randomIntervalFadeIn);
 
-    //   setInterval(() => {         
-    //     let randomElement = Math.floor(Math.random() * Object.keys(allParams).length);
-    //     if (allParams[Object.keys(allParams)[randomElement]].style.visibility == 'visible') {
-    //       fadeOut(allParams[Object.keys(allParams)[randomElement]]);
-    //     }
-    //   }, randomIntervalFadeOut);    
+    setInterval(() => {
+      let randomElement = Math.floor(Math.random() * Object.keys(allParams).length);
+      if (allParams[Object.keys(allParams)[randomElement]].style.visibility == 'visible') {
+        fadeOut(allParams[Object.keys(allParams)[randomElement]]);
+      }
+    }, randomIntervalFadeOut);
   }
 
   // Get the modal
