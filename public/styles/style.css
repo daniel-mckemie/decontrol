@@ -1,15 +1,22 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .slidecontainer {
   width: 100%; /* Width of the outside container */
+  margin-left: 8%;
 }
 
 .slider-div {
   border-style: solid;
-  width: 80%;  
+  width: 80%;
 }
 
 /* The slider itself */
-.slider {  
-  -webkit-appearance: none;  /* Override default CSS styles */
+.slider {
+  -webkit-appearance: none; /* Override default CSS styles */
   appearance: none;
   /* visibility: hidden; */
   width: 90%; /* Full-width */
@@ -21,7 +28,6 @@
   /* transition: opacity .2s;   */
 }
 
-
 /* .slider:hover {
   opacity: 1;
 } */
@@ -32,14 +38,14 @@
   appearance: none;
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
-  background: #4CAF50; /* Green background */
+  background: #4caf50; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 
 .slider::-moz-range-thumb {
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
-  background: #4CAF50; /* Green background */
+  background: #4caf50; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 
@@ -53,8 +59,8 @@
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
